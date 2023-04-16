@@ -6,22 +6,26 @@
 # *Пример:*
 # **Ввод:** пара-ра-рам рам-пам-папам па-ра-па-да
 #     **Вывод:** Парам пам-пам
+class VinnieSong:
+    def __init__(self, say):
+        self.say = say
+
+    def singlOfVinny(self):
+        self.say = self.say.split()
+        list_1 = []
+        for word in self.say:
+            sum_w = 0
+            for i in word:
+                if i in 'аеёиоуыэюя':
+                    sum_w += 1
+            list_1.append(sum_w)
+        return len(list_1) == list_1.count(list_1[0])
+
 
 vinnySay = str(input('Винни поёт:'))
-def singlOfVinny(str):
-    str = str.split()
-    list_1 = []
-    for word in str:
-        sum_w = 0
-        for i in word:
-            if i in 'аеёиоуыэюя':
-                sum_w += 1
-        list_1.append(sum_w)
-    return len(list_1) == list_1.count(list_1[0])
+calculate = VinnieSong(vinnySay)
 
-
-if singlOfVinny(vinnySay):
+if calculate.singlOfVinny():
     print('Парам пам-пам')
 else:
     print('Пам парам')
-
